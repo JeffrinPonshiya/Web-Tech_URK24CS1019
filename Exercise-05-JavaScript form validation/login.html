@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Freelancer Portfolio</title>
+
+    <style>
+        body {
+            background-color: #FBEFEF;
+            color: #CF4173;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+            border: 15px solid transparent;
+            border-image: url("border.png") 30 round;
+            box-sizing: border-box;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #92003A;
+        }
+
+        .card {
+            max-width: 370px;
+            margin: 35px auto;
+            padding: 25px;
+            background: #FFF9FA;
+            border: 2px solid #E7B7C8;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px #E7B7C8;
+            text-align: left;
+        }
+
+        .card h2, .card p {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-top: 6px;
+            border: 2px solid #CF4173;
+            border-radius: 7px;
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #92003A;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .main-btn {
+            width: 100%;
+            padding: 11px;
+            margin-top: 20px;
+            background: #92003A;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .main-btn:hover {
+            background: #5D3140;
+        }
+
+        .switch-btn {
+            background: none;
+            border: none;
+            color: #92003A;
+            text-decoration: underline;
+            font-size: 16px;
+        }
+
+        .error {
+            display: block;
+            color: #B42335;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .message {
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 25px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1><i>FREELANCER PORTFOLIO</i></h1>
+    <p>Welcome! Sign in to explore my portfolio.</p>
+
+    <hr width="70%" color="#92003A">
+
+    <div class="card">
+
+        <!-- SIGN IN -->
+        <section id="loginSection">
+            <h2>Sign In</h2>
+            <p>Welcome back!</p>
+
+            <form id="loginForm" novalidate>
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail"
+                       placeholder="Enter your email">
+                <span class="error" id="loginEmailError"></span>
+
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword"
+                       placeholder="Enter your password">
+                <span class="error" id="loginPasswordError"></span>
+
+                <button class="main-btn" type="submit">
+                    Sign In
+                </button>
+            </form>
+
+            <p>
+                New user?
+                <button type="button" class="switch-btn"
+                        id="showRegister">
+                    Create Account
+                </button>
+            </p>
+        </section>
+
+        <!-- CREATE ACCOUNT -->
+        <section id="registerSection" hidden>
+            <h2>Create Account</h2>
+            <p>Register to get started!</p>
+
+            <form id="registerForm" novalidate>
+                <label for="regName">Full Name</label>
+                <input type="text" id="regName"
+                       placeholder="Enter your full name">
+                <span class="error" id="regNameError"></span>
+
+                <label for="regEmail">Email Address</label>
+                <input type="email" id="regEmail"
+                       placeholder="Enter your email">
+                <span class="error" id="regEmailError"></span>
+
+                <label for="regPassword">Password</label>
+                <input type="password" id="regPassword"
+                       placeholder="At least 8 characters">
+                <span class="error" id="regPasswordError"></span>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword"
+                       placeholder="Re-enter your password">
+                <span class="error" id="confirmPasswordError"></span>
+
+                <button class="main-btn" type="submit">
+                    Register
+                </button>
+            </form>
+
+            <p>
+                Already registered?
+                <button type="button" class="switch-btn"
+                        id="showLogin">
+                    Sign In
+                </button>
+            </p>
+        </section>
+
+        <p id="statusMessage" class="message" role="status"></p>
+
+    </div>
+
+    <script src="validate.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Freelancer Portfolio</title>
+
+    <!-- Redirect to login if the user is not signed in -->
+    <script>
+        if (sessionStorage.getItem("portfolioLoggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #FBEFEF;
+            color: #CF4173;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+
+            border: 12px solid transparent;
+            border-image: url("border.png") 30 round;
+            min-height: 100vh;
+        }
+
+        h1, h2 {
+            color: #92003A;
+        }
+
+        h1 {
+            font-size: 34px;
+            margin: 20px 0 12px;
+        }
+
+        h2 {
+            font-size: 25px;
+            margin: 15px 0 5px;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        hr {
+            width: 75%;
+            border: none;
+            border-top: 1px solid #92003A;
+            margin: 25px auto;
+        }
+
+        a {
+            color: #92003A;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #CF4173;
+            text-decoration: underline;
+        }
+
+        /* Sign Out at the top-right */
+        .logout-container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px 2%;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            background-color: #92003A;
+            color: white;
+            padding: 9px 20px;
+            border: 1px solid #92003A;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .logout-btn:hover {
+            background-color: #5D3140;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Introduction */
+        .intro {
+            max-width: 750px;
+            margin: 30px auto;
+        }
+
+        .profile-img {
+            width: 155px;
+            height: 155px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #92003A;
+        }
+
+        .role {
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .description {
+            margin: 12px auto;
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 12px;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        .navigation a {
+            flex: 1;
+            padding: 17px 12px;
+            background-color: #92003A;
+            color: white;
+            border: 1px solid #92003A;
+            border-radius: 8px;
+            font-size: 17px;
+            transition: background-color 0.2s;
+        }
+
+        .navigation a:hover {
+            background-color: #5D3140;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* About section */
+        .about {
+            max-width: 700px;
+            margin: 35px auto;
+        }
+
+        .about p {
+            margin: 8px 0;
+        }
+
+        /* Project inquiry */
+        .inquiry {
+            margin: 30px auto;
+        }
+
+        .inquiry a {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #92003A;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .inquiry a:hover {
+            background-color: #F8E3EA;
+            text-decoration: none;
+        }
+
+        footer {
+            padding: 5px 0 15px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+                border-width: 8px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .profile-img {
+                width: 135px;
+                height: 135px;
+            }
+
+            .navigation {
+                flex-direction: column;
+                max-width: 300px;
+            }
+
+            .navigation a {
+                padding: 12px;
+            }
+
+            hr {
+                width: 90%;
+            }
+
+            .logout-container {
+                padding: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top-right Sign Out button -->
+    <div class="logout-container">
+        <a href="#" class="logout-btn" id="logoutBtn">
+            Sign Out
+        </a>
+    </div>
+
+    <header>
+        <h1><i>FREELANCER PORTFOLIO</i></h1>
+        <hr>
+    </header>
+
+    <main>
+
+        <!-- Introduction -->
+        <section class="intro">
+
+            <img
+                src="profile.jpg"
+                alt="Jeffrin Ponshiya"
+                class="profile-img"
+            >
+
+            <h2>Jeffrin Ponshiya M</h2>
+
+            <p class="role">
+                Aspiring Freelance Web Developer
+            </p>
+
+            <p class="description">
+                Welcome to my portfolio. I am a B.Tech CSE student
+                interested in web development, programming, and
+                learning new technologies.
+            </p>
+
+        </section>
+
+        <hr>
+
+        <!-- Navigation to existing pages -->
+        <nav class="navigation">
+
+            <a href="personal.html">
+                Personal Details
+            </a>
+
+            <a href="skills.html">
+                Skills
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+        <hr>
+
+        <!-- About section -->
+        <section class="about">
+
+            <h2>About My Work</h2>
+
+            <p>
+                Explore my personal background, technical skills,
+                and contact information through the pages above.
+            </p>
+
+        </section>
+
+        <!-- Project inquiry -->
+        <section class="inquiry">
+
+            <p>
+                <b>Interested in working together?</b>
+            </p>
+
+            <a href="forms1.html">
+                Project Inquiry Form
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <hr>
+
+    </footer>
+
+    <!-- Sign Out functionality -->
+    <script>
+        document.getElementById("logoutBtn").addEventListener(
+            "click",
+            function (event) {
+                event.preventDefault();
+
+                sessionStorage.removeItem("portfolioLoggedIn");
+                sessionStorage.removeItem("portfolioUser");
+
+                window.location.replace("login.html");
+            }
+        );
+    </script>
+
+</body>
+</html>

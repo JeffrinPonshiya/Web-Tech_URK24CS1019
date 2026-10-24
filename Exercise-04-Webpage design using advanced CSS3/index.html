@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Freelancer Portfolio</title>
+
+    <style>
+
+        body{
+            background-color:#FBEFEF;
+
+            /* Multiple Backgrounds */
+            background-image:
+                url(img_flwr.gif),
+                url(paper.gif);
+
+            background-position:
+                right bottom,
+                left top;
+
+            background-repeat:
+                no-repeat,
+                repeat;
+
+            /* Background Size */
+            background-size:
+                100px 100px,
+                150px 150px;
+
+            color:#CF4173;
+
+            font-family:"Times New Roman", Times, serif;
+
+            text-align:center;
+
+            /* Border Image around the complete webpage */
+            border:15px solid transparent;
+            border-image:url(border.png) 30 round;
+
+            /* Keeps the border inside the page */
+            box-sizing:border-box;
+
+            /* Makes the border cover the screen height */
+            min-height:100vh;
+
+            margin:0;
+        }
+
+        h1{
+            color:#92003A;
+        }
+
+        h2{
+            color:#92003A;
+        }
+
+        a{
+            color:#92003A;
+            text-decoration:none;
+        }
+
+        a:hover{
+            color:#5D3140;
+        }
+
+        table{
+            margin:auto;
+        }
+
+        td{
+            border-radius:15px;
+        }
+
+        .profile-img{
+
+            width:180px;
+            height:180px;
+
+            object-fit:cover;
+
+            /* Normal border for profile image */
+            border:3px solid #92003A;
+
+            /* Rounded profile image */
+            border-radius:50%;
+        }
+
+        .portfolio-table td{
+
+            background-color:#AF719D;
+
+            width:180px;
+            height:120px;
+        }
+
+        .portfolio-table td:hover{
+
+            background-color:#92003A;
+        }
+
+
+        @media (max-width:600px){
+
+            h1{
+                font-size:28px;
+            }
+
+            h2{
+                font-size:22px;
+            }
+
+            .portfolio-table{
+                width:100%;
+            }
+
+            .portfolio-table td{
+
+                display:block;
+
+                width:180px !important;
+
+                height:120px;
+
+                margin:10px auto;
+            }
+
+            .profile-img{
+
+                width:150px;
+                height:150px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>
+        <i>FREELANCER PORTFOLIO</i>
+    </h1>
+
+    <img
+        src="profile.jpg"
+        class="profile-img"
+        alt="Profile Image">
+
+
+    <h2>
+        Jeffrin Ponshiya M
+    </h2>
+
+
+    <p>
+        <i>Aspiring Freelance Web Developer</i>
+    </p>
+
+
+    <p>
+        Welcome to my portfolio! Explore my personal details,
+        technical skills, and contact information.
+    </p>
+
+
+    <hr width="70%" color="#92003A">
+
+    <table
+        class="portfolio-table"
+        cellpadding="10"
+        cellspacing="10">
+
+        <tr>
+
+            <td align="center">
+
+                <a href="personal.html">
+
+                    <font size="5" color="white">
+
+                        Personal Details
+
+                    </font>
+
+                </a>
+
+            </td>
+
+
+            <td align="center">
+
+                <a href="skills.html">
+
+                    <font size="5" color="white">
+
+                        Skills
+
+                    </font>
+
+                </a>
+
+            </td>
+
+
+            <td align="center">
+
+                <a href="contact.html">
+
+                    <font size="5" color="white">
+
+                        Contact
+
+                    </font>
+
+                </a>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+
+    <br>
+
+
+    <hr width="70%" color="#92003A">
+
+
+    <br>
+
+    <p>
+
+        <a href="forms1.html">
+
+            <b>
+                Fill Out the Project Inquiry Form Here!
+            </b>
+
+        </a>
+
+    </p>
+
+
+    <br>
+
+
+</body>
+
+</html>

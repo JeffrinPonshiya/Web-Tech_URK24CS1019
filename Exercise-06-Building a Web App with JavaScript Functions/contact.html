@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Me</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #FBEFEF;
+            color: #CF4173;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #92003A;
+            font-size: 34px;
+            margin: 10px 0 20px;
+        }
+
+        h2 {
+            color: #92003A;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        hr {
+            width: 80%;
+            border: none;
+            border-top: 2px solid #92003A;
+            margin: 20px auto;
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 0 auto 28px;
+            line-height: 1.8;
+        }
+
+        .contact-card {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFF9FA;
+            border: 1px solid #E9A8BF;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(146, 0, 58, 0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            border: 1px solid #E9A8BF;
+            text-align: left;
+            overflow-wrap: anywhere;
+        }
+
+        th {
+            width: 30%;
+            color: #92003A;
+            background-color: #F8E3EA;
+        }
+
+        td {
+            background-color: #FFF9FA;
+        }
+
+        tbody tr:nth-child(even) th,
+        tbody tr:nth-child(even) td {
+            background-color: #F8E3EA;
+        }
+
+        tbody tr:hover th,
+        tbody tr:hover td {
+            background-color: #F2D4E0;
+        }
+
+        td a {
+            color: #92003A;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            color: #CF4173;
+            text-decoration: underline;
+        }
+
+        .connect {
+            max-width: 750px;
+            margin: 35px auto;
+            padding: 22px;
+            background-color: #FFF9FA;
+            border: 1px solid #E9A8BF;
+            border-radius: 12px;
+        }
+
+        .connect p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 10px 22px;
+            border: 1px solid #92003A;
+            border-radius: 6px;
+            color: #92003A;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .social-links a:hover {
+            background-color: #92003A;
+            color: white;
+            text-decoration: none;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin: 12px auto 20px;
+            padding: 11px 26px;
+            background-color: #92003A;
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .home-link:hover {
+            background-color: #5D3140;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            hr {
+                width: 90%;
+            }
+
+            .contact-card,
+            .connect {
+                padding: 10px;
+            }
+
+            th,
+            td {
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+
+            th {
+                width: 32%;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><i>CONTACT ME</i></h1>
+        <hr>
+
+        <p class="intro">
+            Thank you for visiting my Freelancer Portfolio.
+            Feel free to contact me for collaborations,
+            project discussions, or freelance opportunities.
+        </p>
+    </header>
+
+    <main>
+
+        <section class="contact-card">
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Email</th>
+                        <td>
+                            <a href="mailto:jeffrinponshiya@karunya.edu.in">
+                                jeffrinponshiya@karunya.edu.in
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Location</th>
+                        <td>Coimbatore, Tamil Nadu</td>
+                    </tr>
+
+                    <tr>
+                        <th>LinkedIn</th>
+                        <td>
+                            <a
+                                href="https://www.linkedin.com/in/jeffrin-ponshiya-a6aba1322/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Jeffrin Ponshiya
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>GitHub</th>
+                        <td>
+                            <a
+                                href="https://github.com/JeffrinPonshiya"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                JeffrinPonshiya
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+        <section class="connect">
+
+            <h2>Connect With Me</h2>
+
+            <p>
+                I am always eager to learn new technologies,
+                work on innovative projects, and connect
+                with fellow developers.
+            </p>
+
+            <div class="social-links">
+                <a
+                    href="https://www.linkedin.com/in/jeffrin-ponshiya-a6aba1322/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Visit LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/JeffrinPonshiya"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Visit GitHub
+                </a>
+
+                <a href="mailto:jeffrinponshiya@karunya.edu.in">
+                    Send an Email
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <hr>
+
+        <a href="index.html" class="home-link">
+            &#8592; Back to Home
+        </a>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailDesk - Train Reservation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h2>Rail<span>Desk</span></h2>
+            <p>TRAIN RESERVATION PORTAL</p>
+        </div>
+
+        <div class="header-info">
+            <span>Welcome to RailDesk</span>
+            <span id="currentDate"></span>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <button class="nav-item active" onclick="openPage('home', this)">Home</button>
+        <button class="nav-item" onclick="openPage('bookings', this)">My Bookings</button>
+        <button class="nav-item" onclick="openPage('pnr', this)">PNR Enquiry</button>
+        <button class="nav-item" onclick="openPage('help', this)">Help</button>
+    </nav>
+
+    <main>
+
+        <!-- HOME -->
+        <section id="home" class="page active">
+
+
+            <div class="welcome-text">
+                <h2>Plan your train journey</h2>
+                <p>Search trains between stations and find a suitable journey.</p>
+            </div>
+
+            <!-- Search -->
+            <div class="panel">
+
+                <div class="panel-title">
+                    <h3>Train Search</h3>
+                    <span>Journey Details</span>
+                </div>
+
+                <form id="searchForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="from">From Station</label>
+                            <input type="text" id="from"
+                                placeholder="Enter source station"
+                                list="stations" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="to">To Station</label>
+                            <input type="text" id="to"
+                                placeholder="Enter destination station"
+                                list="stations" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Journey Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="travelClass">Travel Class</label>
+                            <select id="travelClass">
+                                <option value="SL">Sleeper (SL)</option>
+                                <option value="3A">AC 3 Tier (3A)</option>
+                                <option value="2A">AC 2 Tier (2A)</option>
+                                <option value="1A">First AC (1A)</option>
+                                <option value="CC">Chair Car (CC)</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <datalist id="stations">
+                        <option value="Chennai">
+                        <option value="Coimbatore">
+                        <option value="Bengaluru">
+                        <option value="Madurai">
+                        <option value="Salem">
+                        <option value="Mumbai">
+                        <option value="New Delhi">
+                        <option value="Hyderabad">
+                        <option value="Kochi">
+                        <option value="Tiruchirappalli">
+                    </datalist>
+
+                    <div class="form-buttons">
+                        <button type="button" class="secondary-btn"
+                            onclick="swapStations()">Swap Stations</button>
+
+                        <button type="submit" class="main-btn">
+                            Search Trains
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- Search Results -->
+            <div id="results" class="results hidden">
+
+                <h3>Available Trains</h3>
+                <p id="searchInfo"></p>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Train No.</th>
+                                <th>Train Name</th>
+                                <th>Departure</th>
+                                <th>Arrival</th>
+                                <th>Duration</th>
+                                <th>Availability</th>
+                                <th>Fare</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="trainTable"></tbody>
+                    </table>
+                </div>
+
+                <p class="small-note">
+                    All train schedules, fares and availability shown here
+                    are sample data for academic demonstration.
+                </p>
+
+            </div>
+
+            <!-- Other Services -->
+            <div class="services">
+
+                <h3>Other Services</h3>
+
+                <div class="service-links">
+
+                    <button onclick="openPage('pnr')">
+                        <strong>PNR Status</strong>
+                        <span>Check sample reservation details</span>
+                    </button>
+
+                    <button onclick="openPage('bookings')">
+                        <strong>My Bookings</strong>
+                        <span>View your saved tickets</span>
+                    </button>
+
+                    <button onclick="openPage('help')">
+                        <strong>Help & Information</strong>
+                        <span>Instructions for using the portal</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOOKINGS -->
+        <section id="bookings" class="page">
+
+            <div class="page-heading">
+                <h2>My Bookings</h2>
+                <p>View your saved train reservations.</p>
+            </div>
+
+            <div id="bookingContainer"></div>
+
+        </section>
+
+
+        <!-- PNR -->
+        <section id="pnr" class="page">
+
+            <div class="page-heading">
+                <h2>PNR Enquiry</h2>
+                <p>Enter your ten-digit PNR number below.</p>
+            </div>
+
+            <div class="panel enquiry-panel">
+
+                <div class="form-group">
+                    <label for="pnrNumber">PNR Number</label>
+                    <input type="text" id="pnrNumber"
+                        maxlength="10"
+                        placeholder="Enter 10 digit PNR">
+                </div>
+
+                <button class="main-btn" onclick="checkPNR()">
+                    Check PNR
+                </button>
+
+                <div id="pnrDetails"></div>
+
+                <p class="small-note">
+                    PNR information is simulated. No connection to
+                    the actual railway reservation database is available.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- HELP -->
+        <section id="help" class="page">
+
+            <div class="page-heading">
+                <h2>Help & Information</h2>
+                <p>Some instructions to use the RailDesk portal.</p>
+            </div>
+
+            <div class="panel help-panel">
+
+                <h3>How to search for trains?</h3>
+                <ol>
+                    <li>Enter your departure station.</li>
+                    <li>Enter your destination station.</li>
+                    <li>Select your journey date.</li>
+                    <li>Choose your preferred travel class.</li>
+                    <li>Click Search Trains.</li>
+                    <li>Choose a train and enter passenger details.</li>
+                </ol>
+
+                <hr>
+
+                <h3>How to save a booking?</h3>
+                <ol>
+                    <li>Search for a train.</li>
+                    <li>Click the Book button.</li>
+                    <li>Enter the passenger name and age.</li>
+                    <li>Confirm your reservation.</li>
+                    <li>View the saved ticket under My Bookings.</li>
+                </ol>
+
+                <hr>
+
+            </div>
+
+        </section>
+
+
+        <!-- PASSENGER FORM MODAL -->
+        <div id="bookingModal" class="modal hidden">
+
+            <div class="modal-content">
+
+                <div class="modal-heading">
+                    <h3>Passenger Details</h3>
+                    <button onclick="closeModal()" class="close-btn">X</button>
+                </div>
+
+                <div id="selectedTrainInfo"></div>
+
+                <form id="passengerForm">
+
+                    <div class="form-group">
+                        <label for="passengerName">Passenger Name</label>
+                        <input type="text" id="passengerName"
+                            placeholder="Enter full name" required>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="passengerAge">Age</label>
+                            <input type="number" id="passengerAge"
+                                min="1" max="120" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" required>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="main-btn">
+                        Confirm Booking
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- TICKET MODAL -->
+        <div id="ticketModal" class="modal hidden">
+
+            <div class="modal-content ticket">
+
+                <h2>RailDesk</h2>
+                <p>RESERVATION CONFIRMATION</p>
+
+                <hr>
+
+                <div id="ticketDetails"></div>
+
+                <div class="ticket-buttons">
+                    <button class="main-btn" onclick="window.print()">
+                        Print Ticket
+                    </button>
+
+                    <button class="secondary-btn" onclick="closeTicket()">
+                        Close
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

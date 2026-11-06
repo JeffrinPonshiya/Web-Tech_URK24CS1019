@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Tracker | Experiment 6</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 22px;
+            background-color: #FBEFEF;
+            color: #CF4173;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+
+            border: 12px solid transparent;
+            border-image: url("border.png") 30 round;
+        }
+
+        h1, h2 {
+            color: #92003A;
+        }
+
+        h1 {
+            font-size: 34px;
+            margin: 12px 0;
+        }
+
+        .subtitle {
+            line-height: 1.6;
+            margin: 10px auto 25px;
+        }
+
+        hr {
+            width: 75%;
+            border: none;
+            border-top: 2px solid #92003A;
+            margin: 20px auto;
+        }
+
+        .tracker {
+            width: 100%;
+            max-width: 720px;
+            margin: 25px auto;
+            padding: 25px;
+            background-color: #FFF9FA;
+            border: 1px solid #E9A8BF;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(146, 0, 58, 0.08);
+        }
+
+        .tracker h2 {
+            margin-top: 0;
+        }
+
+        .task-form {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        #taskInput {
+            flex: 1;
+            min-width: 0;
+            padding: 12px;
+            border: 2px solid #CF4173;
+            border-radius: 6px;
+            background: #FFFFFF;
+            color: #5D3140;
+            font: inherit;
+            font-size: 16px;
+        }
+
+        #taskInput:focus {
+            outline: none;
+            border-color: #92003A;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .add-btn {
+            padding: 11px 22px;
+            border: 1px solid #92003A;
+            border-radius: 6px;
+            background: #92003A;
+            color: white;
+            font-weight: bold;
+        }
+
+        .add-btn:hover,
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #5D3140;
+            color: white;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin: 18px 0;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid #92003A;
+            border-radius: 6px;
+            background: #FFF9FA;
+            color: #92003A;
+        }
+
+        .filter-btn.active {
+            font-weight: bold;
+        }
+
+        #taskList {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px;
+            margin-bottom: 10px;
+            border: 1px solid #E9A8BF;
+            border-radius: 7px;
+            background: #FBEFEF;
+        }
+
+        .task-item input[type="checkbox"] {
+            width: 17px;
+            height: 17px;
+            accent-color: #92003A;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .task-text {
+            flex: 1;
+            overflow-wrap: anywhere;
+            color: #5D3140;
+            font-size: 17px;
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+            color: #9B7180;
+        }
+
+        .delete-btn {
+            padding: 7px 12px;
+            border: 1px solid #92003A;
+            border-radius: 5px;
+            background: #FFF9FA;
+            color: #92003A;
+        }
+
+        .delete-btn:hover {
+            background: #92003A;
+            color: white;
+        }
+
+        #emptyMessage {
+            color: #9B7180;
+            padding: 15px 5px;
+        }
+
+        #counter {
+            margin-top: 18px;
+            color: #92003A;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin: 15px auto 5px;
+            padding: 10px 22px;
+            border: 1px solid #92003A;
+            border-radius: 6px;
+            color: #92003A;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .home-link:hover {
+            background: #92003A;
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            margin: 20px 0 5px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+                border-width: 8px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .tracker {
+                padding: 16px 12px;
+            }
+
+            .task-form {
+                flex-direction: column;
+            }
+
+            .add-btn {
+                width: 100%;
+            }
+
+            .task-item {
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .task-text {
+                font-size: 15px;
+            }
+
+            hr {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><i>TASK TRACKER</i></h1>
+
+        <p class="subtitle">
+            Organise your day, manage your tasks,
+            and keep track of your progress.
+        </p>
+
+        <hr>
+    </header>
+
+    <main>
+
+        <section class="tracker">
+
+            <h2>My Tasks</h2>
+
+            <p>
+                Add a task below and press Enter or click Add Task.
+            </p>
+
+            <form id="taskForm" class="task-form">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter a new task..."
+                    autocomplete="off"
+                    aria-label="New task"
+                >
+
+                <button type="submit" class="add-btn">
+                    Add Task
+                </button>
+
+            </form>
+
+            <div class="filters">
+
+                <button
+                    type="button"
+                    class="filter-btn active"
+                    data-filter="all">
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="open">
+                    Open
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="completed">
+                    Completed
+                </button>
+
+            </div>
+
+            <ul id="taskList"></ul>
+
+            <p id="emptyMessage">
+                No tasks yet. Add your first task!
+            </p>
+
+            <p id="counter">0 left</p>
+
+        </section>
+
+        <a href="index.html" class="home-link">
+            Back to Portfolio Home
+        </a>
+
+    </main>
+
+    <footer>
+       
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
